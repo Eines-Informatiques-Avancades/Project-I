@@ -19,7 +19,9 @@
 	double precision:: dt= 0.001 !Time step (ps)
 
 	integer::thermo=1 !For no thermostat:0, for active thermostat:1
-
+	! Random seed
+	!----------------
+	integer::rng_seed=666
 	!Force parameters
 	!----------------
 	double precision::rc= 0.05d0 !Cut-off
