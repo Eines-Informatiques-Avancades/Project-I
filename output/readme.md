@@ -12,13 +12,10 @@ Containing the initial structure:
 
 Containing the thermodynamics parameters:
 
-  * **temp.dat**: It contains the temperatures of the temperature for some time-steps.
-  * **energy.dat**: It contains the energy of the temperature for some time-steps
-  * **pressure.dat**: It contains the pressure of the temperature for some time-steps
-  * **rdf.dat**: It contains the data of the radial distribution function.
-
-Containing the temporal evolution:
-
+  * **temp.dat**: Contains the temperatures of the temperature for some time-steps.
+  * **energy.dat**: Contains the energy of the temperature for some time-steps
+  * **pressure.dat**: Contains the pressure of the temperature for some time-steps
+  * **rdf.dat**: Contains data of the radial distribution function.
   * **trajectory.xyz**: It contains the trajectory of the system time evolution every given number of time steps specified in the input in a xyz format, intended to be rendered using VMD software.
 
 The plots:
