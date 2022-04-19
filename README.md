@@ -214,25 +214,6 @@ Al the information relevant to this process can be accessed in the *bench.log fi
 - [Numpy](https://numpy.org/) - Numerical computation module for paython
 - [Matplotlib](https://matplotlib.org/) - Graphical plotting module for python
 
-
-## TODO <a name = "todo"></a>
-**Parallelization:**
-- Initialization:
-  - sc: Raul
-  - fcc: Raul
-  - diamond: Marc
-  - bimodal: Marc
-- Thermostat:
-  - kinetic: Lucas
-  - andersen thermostat: Raul
-- Integration:
-  - velocity verlet: Pol
-  - velocity verlet with thermostat: Marc
-- Forces:
-  - Force + Lj: Lucas
-- Statistic:
-  - g(r): Pol
-
 ## Authors <a name = "authors"></a>
 - [@LucasFernandezStolpa](https://github.com/LucasFernandezStolpa) - Coordinator
 - [@perasperadastra](https://github.com/perasperadastra)
