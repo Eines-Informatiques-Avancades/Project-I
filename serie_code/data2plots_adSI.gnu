@@ -45,7 +45,6 @@ set linetype 4 lc rgb "dark-orange"
 plot 'thermodynamics.dat' u ($1*t_coef):($4*e_kb) t 'Etot' with lp lt 4 ps 0.5, \
 
 rep
-pause 10
 unset output
 
 ##### TEMPERATURE VS TIME #####
@@ -61,7 +60,6 @@ set linetype 5 lc rgb "dark-cyan"
 plot 'thermodynamics.dat' u ($1*t_coef):($5*e_kb) t 'Tinst' with lp lt 5 ps 0.5, \
 
 rep
-pause 5
 unset output
 
 ##### PRESSURE VS TIME #####
@@ -78,7 +76,6 @@ set linetype 6 lc rgb "gold"
 plot 'thermodynamics.dat' u ($1*t_coef):(kb*e_kb*$7/sig**3) t 'Pressure (Pa)' with lp lt 7 ps 0.5, \
 
 rep
-pause 5
 unset output
 
 ##### PRESSURE VS TEMPERATURE #####
