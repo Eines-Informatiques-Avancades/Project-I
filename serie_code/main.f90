@@ -69,10 +69,6 @@ program main
     sigma = sqrt(temp1)
     do i=1,nsim_temp
         call time_step_vVerlet(pos,N,d,L,vel,dt,cutoff,nu,sigma,pot)
-        write(14,'(A)') trim(adjustl(''))  ! Blank line
-        write(14,'(I0)') N  
-        write(14,'(A)') trim(adjustl(''))  ! Blank line
- 	    write(14,*) pos
     enddo
     print *, "Finished Thermalization"    
 
@@ -92,6 +88,10 @@ program main
             call pression(pos,N,d,L,cutoff,press)
             temperatura=temp_inst(ke,N)
             write(15,*)i*dt,ke,pot,pot+ke,temperatura,msdval,press+temperatura*density
+            write(14,'(A)') trim(adjustl(''))  ! Blank line
+            write(14,'(I0)') N  
+            write(14,'(A)') trim(adjustl(''))  ! Blank line
+ 	        write(14,*) pos
 
             if (mod(i,50000).eq.0) then ! Control state of simulation
                 print*,i
