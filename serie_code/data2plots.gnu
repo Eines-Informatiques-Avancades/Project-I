@@ -24,7 +24,6 @@ plot 'thermodynamics.dat' u 1:2 t 'Ekin' with lp lt 2 ps 1, \
 'thermodynamics.dat' u 1:3 t 'ULJ' with points lt 1 ps 1 
 
 replot
-pause 1
 unset output
 
 ##### TOTAL ENERGY OSCILATIONS #####
@@ -39,7 +38,6 @@ set linetype 4 lc rgb "dark-orange"
 plot 'thermodynamics.dat' u 1:4 t 'Etot' with lp lt 4 ps 0.5, \
 
 rep
-pause 10
 unset output
 
 ##### TEMPERATURE VS TIME #####
@@ -55,7 +53,6 @@ set linetype 5 lc rgb "dark-cyan"
 plot 'thermodynamics.dat' u 1:5 t 'Tinst' with lp lt 5 ps 0.5, \
 
 rep
-pause 5
 unset output
 
 ##### PRESSURE VS TIME #####
@@ -72,7 +69,6 @@ set linetype 6 lc rgb "gold"
 plot 'thermodynamics.dat' u 1:7 t 'Pressure' with lp lt 7 ps 0.5, \
 
 rep
-pause 5
 unset output
 
 ##### PRESSURE VS TEMPERATURE #####
@@ -89,7 +85,6 @@ set linetype 7 lc rgb "violet" lw 1 dashtype 1
 plot 'thermodynamics.dat' u 5:7 t 'P=f(T)' with lp lt 7 ps 0.5, \
 
 rep
-pause 5
 unset output
 
 ##### RADIAL DISTRIBUTION FUNCTION / PAIR DISTRIBUTION FUNCTION #####
