@@ -38,6 +38,7 @@ program main
     allocate(rdf(numdr))
 
     ! opening files to save results
+    open(14,file='trajectory.xyz')
     open(15,file='thermodynamics.dat')
     open(16,file='resultsrdflong_def.dat')
 
@@ -62,11 +63,16 @@ program main
     print *, L, cutoff, M, a
     
     call ini_pos_sc(N,a,M,d,pos)
+    write(*,14) pos
     
     !Thermalization
     sigma = sqrt(temp1)
     do i=1,nsim_temp
         call time_step_vVerlet(pos,N,d,L,vel,dt,cutoff,nu,sigma,pot)
+        write(14,'(A)') trim(adjustl(''))  ! Blank line
+        write(14,'(I0)') N  
+        write(14,'(A)') trim(adjustl(''))  ! Blank line
+ 	    write(14,*) pos
     enddo
     print *, "Finished Thermalization"    
 
