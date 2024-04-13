@@ -38,7 +38,7 @@ program main
     allocate(rdf(numdr))
 
     ! opening files to save results
-    open(14,file='trajectory.xyz')
+    open(14,file='trajectory.xyz',position='append')
     open(15,file='thermodynamics.dat')
     open(16,file='resultsrdflong_def.dat')
 
@@ -54,21 +54,21 @@ program main
     L=(dble(N)/density)**(1.d0/3.d0)
     M=int(N**(1.d0/3.d0))+1
     a=L/dble(M)
-<<<<<<< HEAD
-    ! cutoff = L/2.d0
-=======
-    !cutoff = L/2.d0
->>>>>>> dens_01
 
     print *, L, cutoff, M, a
     
     call ini_pos_sc(N,a,M,d,pos)
-    write(*,14) pos
     
     !Thermalization
     sigma = sqrt(temp1)
     do i=1,nsim_temp
         call time_step_vVerlet(pos,N,d,L,vel,dt,cutoff,nu,sigma,pot)
+        ! Write trajectory in file "trajectory.xyz"
+        write(14,'(I5)')N
+        write(14, *) 
+        do j = 1, 125
+                write(14, '(A, 3F12.6)')'A', pos(j, 1), pos(j, 2), pos(j, 3)
+        end do
     enddo
     print *, "Finished Thermalization"    
 
@@ -78,7 +78,7 @@ program main
     !vel=0.d0
     pos0=pos
     rdf=0d0
-    
+
     do i=1,nsim_tot
         call time_step_vVerlet(pos,N,d,L,vel,dt,cutoff,nu,sigma,pot)
         if (mod(i,100).eq.0) then
@@ -88,11 +88,6 @@ program main
             call pression(pos,N,d,L,cutoff,press)
             temperatura=temp_inst(ke,N)
             write(15,*)i*dt,ke,pot,pot+ke,temperatura,msdval,press+temperatura*density
-            write(14,'(A)') trim(adjustl(''))  ! Blank line
-            write(14,'(I0)') N  
-            write(14,'(A)') trim(adjustl(''))  ! Blank line
- 	        write(14,*) pos
-
             if (mod(i,50000).eq.0) then ! Control state of simulation
                 print*,i
             endif
